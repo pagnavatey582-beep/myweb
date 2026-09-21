@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nova International University</title>
+
+<style>
+/* =========================
+   RESET & GLOBAL
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary: #123b70;
+    --secondary: #1d65b5;
+    --accent: #f4b942;
+    --light: #f5f8fc;
+    --dark: #10243e;
+    --text: #536174;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+section {
+    padding: 90px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title span {
+    color: var(--secondary);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    color: var(--dark);
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.section-title p {
+    max-width: 650px;
+    margin: auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.navbar {
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--primary);
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--primary);
+    color: white;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo h1 {
+    font-size: 20px;
+}
+
+.logo small {
+    display: block;
+    color: var(--text);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 27px;
+}
+
+.nav-links a {
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.search-btn,
+.menu-btn {
+    border: none;
+    background: transparent;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.apply-btn {
+    background: var(--primary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.apply-btn:hover {
+    background: var(--secondary);
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    min-height: 720px;
+    padding-top: 78px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(rgba(9,35,68,.78),rgba(9,35,68,.78)),
+        url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=80")
+        center/cover;
+    color: white;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    padding: 9px 15px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.hero h2 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.08;
+    margin-bottom: 22px;
+}
+
+.hero h2 span {
+    color: var(--accent);
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 620px;
+    color: #e6edf5;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--dark);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* =========================
+   STATS
+========================= */
+.stats {
+    background: var(--primary);
+    color: white;
+    padding: 35px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 34px;
+    color: var(--accent);
+}
+
+.stat p {
+    color: #d9e3ef;
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    height: 480px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about-badge {
+    position: absolute;
+    bottom: 25px;
+    right: -20px;
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.15);
+}
+
+.about-badge strong {
+    color: var(--primary);
+    font-size: 28px;
+}
+
+.about-content h2 {
+    font-size: 40px;
+    color: var(--dark);
+    margin: 12px 0 20px;
+}
+
+.about-content p {
+    margin-bottom: 18px;
+}
+
+.check-list {
+    list-style: none;
+    margin: 25px 0;
+}
+
+.check-list li {
+    margin: 12px 0;
+    color: var(--dark);
+}
+
+.check-list li::before {
+    content: "✓";
+    color: var(--secondary);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* =========================
+   PROGRAMS
+========================= */
+.programs {
+    background: var(--light);
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,.07);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+}
+
+.card-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-body h3 {
+    color: var(--dark);
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.card-body p {
+    margin-bottom: 15px;
+}
+
+.learn-more {
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+/* =========================
+   ADMISSIONS
+========================= */
+.admission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.admission-box {
+    background: var(--light);
+    padding: 35px;
+    border-radius: 15px;
+}
+
+.admission-box h3 {
+    color: var(--dark);
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    gap: 15px;
+}
+
+.step-number {
+    min-width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+}
+
+.step h4 {
+    color: var(--dark);
+}
+
+/* =========================
+   SCHOLARSHIPS
+========================= */
+.scholarship {
+    background:
+        linear-gradient(rgba(18,59,112,.92),rgba(18,59,112,.92)),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+    color: white;
+}
+
+.scholarship .section-title h2,
+.scholarship .section-title p {
+    color: white;
+}
+
+.scholarship-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.scholarship-card {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    padding: 30px;
+    border-radius: 14px;
+    backdrop-filter: blur(5px);
+}
+
+.scholarship-card h3 {
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+/* =========================
+   CAMPUS
+========================= */
+.campus-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: 230px;
+    gap: 15px;
+}
+
+.campus-grid img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.campus-main {
+    grid-row: span 2;
+}
+
+/* =========================
+   STUDENT LIFE
+========================= */
+.student-life {
+    background: var(--light);
+}
+
+.life-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.life-card {
+    background: white;
+    padding: 35px 25px;
+    text-align: center;
+    border-radius: 13px;
+}
+
+.life-icon {
+    width: 65px;
+    height: 65px;
+    background: #eaf2fb;
+    color: var(--secondary);
+    margin: auto auto 20px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+}
+
+.life-card h3 {
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+/* =========================
+   NEWS
+========================= */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.news-image {
+    height: 210px;
+    object-fit: cover;
+}
+
+.news-body {
+    padding: 22px;
+}
+
+.news-date {
+    color: var(--secondary);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.news-body h3 {
+    color: var(--dark);
+    margin: 8px 0;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+    background: var(--light);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-info h2 {
+    color: var(--dark);
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.contact-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--primary);
+    color: white;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+}
+
+.contact-item h4 {
+    color: var(--dark);
+}
+
+.contact-form {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.07);
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--dark);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d9e0e8;
+    border-radius: 7px;
+    font: inherit;
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--secondary);
+}
+
+.submit-btn {
+    border: none;
+    background: var(--primary);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #0b213b;
+    color: #c5d0dc;
+    padding-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 45px;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+footer h3 {
+    color: white;
+    margin-bottom: 17px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin: 10px 0;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* =========================
+   SEARCH MODAL
+========================= */
+.search-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.search-modal.active {
+    display: flex;
+}
+
+.search-box {
+    background: white;
+    width: min(600px,90%);
+    padding: 35px;
+    border-radius: 15px;
+}
+
+.search-box h2 {
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+.close-search {
+    float: right;
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width: 900px) {
+
+    .nav-links {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+        gap: 18px;
+        display: none;
+        box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-actions .apply-btn {
+        display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .about-grid,
+    .admission-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-grid,
+    .scholarship-grid,
+    .life-grid,
+    .news-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .campus-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .campus-main {
+        grid-row: span 1;
+    }
+}
+
+@media(max-width: 600px) {
+
+    section {
+        padding: 65px 0;
+    }
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero h2 {
+        font-size: 43px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section-title h2,
+    .about-content h2,
+    .contact-info h2 {
+        font-size: 30px;
+    }
+
+    .stats-grid,
+    .program-grid,
+    .scholarship-grid,
+    .life-grid,
+    .news-grid,
+    .footer-grid,
+    .campus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image img {
+        height: 350px;
+    }
+
+    .about-badge {
+        right: 10px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+<header>
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+            <div class="logo-icon">N</div>
+            <div>
+                <h1>Nova International</h1>
+                <small>UNIVERSITY</small>
+            </div>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#admissions">Admissions</a></li>
+            <li><a href="#campus">Campus</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="search-btn" id="searchBtn">⌕</button>
+            <a href="#admissions" class="apply-btn">Apply Now</a>
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+
+            <span class="hero-tag">🎓 Education • Innovation • Excellence</span>
+
+            <h2>
+                Build Your Future<br>
+                <span>With Knowledge.</span>
+            </h2>
+
+            <p>
+                Discover a world-class learning environment where
+                ambitious students develop knowledge, skills and
+                confidence for the future.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#programs" class="btn btn-primary">
+                    Explore Programs →
+                </a>
+
+                <a href="#about" class="btn btn-outline">
+                    Discover Nova
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+<div class="stats">
+    <div class="container stats-grid">
+
+        <div class="stat">
+            <h3>15K+</h3>
+            <p>Students</p>
+        </div>
+
+        <div class="stat">
+            <h3>120+</h3>
+            <p>Programs</p>
+        </div>
+
+        <div class="stat">
+            <h3>850+</h3>
+            <p>Academic Staff</p>
+        </div>
+
+        <div class="stat">
+            <h3>35+</h3>
+            <p>Countries</p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+<section id="about">
+    <div class="container about-grid">
+
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=80">
+
+            <div class="about-badge">
+                <strong>25+</strong>
+                <p>Years of Excellence</p>
+            </div>
+        </div>
+
+        <div class="about-content">
+
+            <span>ABOUT OUR UNIVERSITY</span>
+
+            <h2>Where curiosity becomes opportunity.</h2>
+
+            <p>
+                Nova International University is a modern academic
+                community dedicated to education, research,
+                innovation and global collaboration.
+            </p>
+
+            <p>
+                Our students learn from experienced lecturers,
+                participate in practical projects and develop
+                the skills required for a rapidly changing world.
+            </p>
+
+            <ul class="check-list">
+                <li>Modern learning facilities</li>
+                <li>Experienced academic professionals</li>
+                <li>International learning opportunities</li>
+                <li>Research and innovation programs</li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary">
+                Learn More
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     PROGRAMS
+========================= -->
+<section class="programs" id="programs">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>Academic Programs</span>
+            <h2>Find Your Field</h2>
+            <p>
+                Choose from a wide range of programs designed
+                to prepare students for future careers.
+            </p>
+        </div>
+
+        <div class="program-grid">
+
+            <div class="card">
+                <img class="card-image"
+                     src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-body">
+                    <h3>Computer Science</h3>
+                    <p>
+                        Learn programming, software development,
+                        algorithms and modern computing.
+                    </p>
+                    <a href="#" class="learn-more">View Program →</a>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <img class="card-image"
+                     src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-body">
+                    <h3>Business & Management</h3>
+                    <p>
+                        Develop leadership, management,
+                        entrepreneurship and business skills.
+                    </p>
+                    <a href="#" class="learn-more">View Program →</a>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <img class="card-image"
+                     src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-body">
+                    <h3>Science & Technology</h3>
+                    <p>
+                        Explore science, engineering,
+                        technology and research.
+                    </p>
+                    <a href="#" class="learn-more">View Program →</a>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <img class="card-image"
+                     src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-body">
+                    <h3>Health Sciences</h3>
+                    <p>
+                        Study health, medical science and
+                        modern healthcare systems.
+                    </p>
+                    <a href="#" class="learn-more">View Program →</a>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <img class="card-image"
+                     src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-body">
+                    <h3>Languages & Humanities</h3>
+                    <p>
+                        Develop communication, languages,
+                        culture and critical thinking.
+                    </p>
+                    <a href="#" class="learn-more">View Program →</a>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <img class="card-image"
+                     src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80">
+
+                <div class="card-body">
+                    <h3>Architecture & Design</h3>
+                    <p>
+                        Combine creativity, technology and
+                        design thinking.
+                    </p>
+                    <a href="#" class="learn-more">View Program →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     ADMISSIONS
+========================= -->
+<section id="admissions">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>Admissions</span>
+            <h2>Start Your Journey</h2>
+            <p>
+                Follow these simple steps to begin your
+                university application.
+            </p>
+        </div>
+
+        <div class="admission-grid">
+
+            <div class="admission-box">
+
+                <h3>Application Process</h3>
+
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h4>Choose a Program</h4>
+                            <p>Select the academic program that matches your goals.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h4>Prepare Documents</h4>
+                            <p>Prepare your academic and identification documents.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h4>Submit Application</h4>
+                            <p>Complete and submit your application online.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h4>Receive Your Result</h4>
+                            <p>Follow the admission team instructions after review.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="admission-box">
+
+                <h3>Why Study With Us?</h3>
+
+                <p>
+                    We provide an environment where students can
+                    develop academic knowledge and practical skills.
+                </p>
+
+                <ul class="check-list">
+                    <li>Flexible academic pathways</li>
+                    <li>International student community</li>
+                    <li>Modern classrooms and laboratories</li>
+                    <li>Career development support</li>
+                    <li>Student clubs and activities</li>
+                </ul>
+
+                <a href="#contact" class="btn btn-primary">
+                    Contact Admissions
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     SCHOLARSHIPS
+========================= -->
+<section class="scholarship">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>Financial Support</span>
+            <h2>Scholarship Opportunities</h2>
+            <p>
+                Explore financial-support opportunities available
+                to eligible students.
+            </p>
+        </div>
+
+        <div class="scholarship-grid">
+
+            <div class="scholarship-card">
+                <h3>Academic Scholarship</h3>
+                <p>
+                    Support for students demonstrating strong
+                    academic achievement.
+                </p>
+            </div>
+
+            <div class="scholarship-card">
+                <h3>International Scholarship</h3>
+                <p>
+                    Opportunities designed for students from
+                    different countries.
+                </p>
+            </div>
+
+            <div class="scholarship-card">
+                <h3>Research Scholarship</h3>
+                <p>
+                    Support for students participating in research
+                    and innovation projects.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     CAMPUS
+========================= -->
+<section id="campus">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>Our Campus</span>
+            <h2>Learn. Live. Connect.</h2>
+            <p>
+                Explore a campus designed to support learning,
+                creativity and student life.
+            </p>
+        </div>
+
+        <div class="campus-grid">
+
+            <img class="campus-main"
+                 src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1000&q=80">
+
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80">
+
+            <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=700&q=80">
+
+            <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=700&q=80">
+
+            <img src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=700&q=80">
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     STUDENT LIFE
+========================= -->
+<section class="student-life">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>Student Experience</span>
+            <h2>Life Beyond the Classroom</h2>
+            <p>
+                University life is about more than studying.
+                Build friendships, discover interests and grow.
+            </p>
+        </div>
+
+        <div class="life-grid">
+
+            <div class="life-card">
+                <div class="life-icon">⚽</div>
+                <h3>Sports</h3>
+                <p>
+                    Join sports activities and stay active
+                    with fellow students.
+                </p>
+            </div>
+
+            <div class="life-card">
+                <div class="life-icon">🎭</div>
+                <h3>Clubs</h3>
+                <p>
+                    Discover student clubs and participate
+                    in creative activities.
+                </p>
+            </div>
+
+            <div class="life-card">
+                <div class="life-icon">🌎</div>
+                <h3>Global Community</h3>
+                <p>
+                    Meet students from different cultures
+                    and countries.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     NEWS
+========================= -->
+<section id="news">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>Latest News</span>
+            <h2>What's Happening</h2>
+            <p>
+                Discover recent university activities,
+                events and announcements.
+            </p>
+        </div>
+
+        <div class="news-grid">
+
+            <article class="card">
+
+                <img class="news-image"
+                     src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80">
+
+                <div class="news-body">
+                    <span class="news-date">SEPTEMBER 18, 2026</span>
+                    <h3>New Student Orientation Week</h3>
+                    <p>
+                        New students joined activities designed
+                        to help them discover campus life.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="card">
+
+                <img class="news-image"
+                     src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80">
+
+                <div class="news-body">
+                    <span class="news-date">SEPTEMBER 10, 2026</span>
+                    <h3>Technology Innovation Workshop</h3>
+                    <p>
+                        Students participated in a practical
+                        technology and innovation workshop.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="card">
+
+                <img class="news-image"
+                     src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=900&q=80">
+
+                <div class="news-body">
+                    <span class="news-date">AUGUST 28, 2026</span>
+                    <h3>International Student Conference</h3>
+                    <p>
+                        Students shared ideas and experiences
+                        during an international conference.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+<section class="contact" id="contact">
+
+    <div class="container contact-grid">
+
+        <div class="contact-info">
+
+            <span>CONTACT US</span>
+
+            <h2>Have a question?</h2>
+
+            <p>
+                Our admissions and student-support teams are
+                available to help you.
+            </p>
+
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <h4>Address</h4>
+                    <p>123 University Avenue, Innovation City</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+855 12 345 678</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">✉</div>
+                <div>
+                    <h4>Email</h4>
+                    <p>info@novainternational.edu</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <form class="contact-form" id="contactForm">
+
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Interested Program</label>
+
+                <select>
+                    <option>Computer Science</option>
+                    <option>Business & Management</option>
+                    <option>Science & Technology</option>
+                    <option>Health Sciences</option>
+                    <option>Languages & Humanities</option>
+                    <option>Architecture & Design</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Message</label>
+                <textarea placeholder="Write your message..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Send Message →
+            </button>
+
+        </form>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+            <div class="footer-logo">Nova International University</div>
+
+            <p>
+                Inspiring students to learn, innovate and
+                create a better future.
+            </p>
+        </div>
+
+
+        <div>
+            <h3>University</h3>
+
+            <ul class="footer-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#campus">Campus</a></li>
+                <li><a href="#news">News</a></li>
+            </ul>
+        </div>
+
+
+        <div>
+            <h3>Students</h3>
+
+            <ul class="footer-links">
+                <li><a href="#admissions">Admissions</a></li>
+                <li><a href="#admissions">Scholarships</a></li>
+                <li><a href="#contact">Student Support</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+
+        <div>
+            <h3>Connect</h3>
+
+            <p>
+                Follow us for university news,
+                events and student stories.
+            </p>
+
+            <p style="margin-top:15px;">
+                Facebook • Instagram • YouTube
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+        <div class="container">
+            © 2026 Nova International University. All Rights Reserved.
+        </div>
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     SEARCH MODAL
+========================= -->
+<div class="search-modal" id="searchModal">
+
+    <div class="search-box">
+
+        <button class="close-search" id="closeSearch">×</button>
+
+        <h2>Search University</h2>
+
+        <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search programs, admissions, campus..."
+        >
+
+        <p id="searchResult" style="margin-top:15px;"></p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+
+    if (navLinks.classList.contains("active")) {
+        menuBtn.textContent = "×";
+    } else {
+        menuBtn.textContent = "☰";
+    }
+});
+
+
+/* Close mobile menu */
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+        menuBtn.textContent = "☰";
+
+    });
+
+});
+
+
+/* =========================
+   SEARCH MODAL
+========================= */
+
+const searchBtn = document.getElementById("searchBtn");
+const searchModal = document.getElementById("searchModal");
+const closeSearch = document.getElementById("closeSearch");
+const searchInput = document.getElementById("searchInput");
+const searchResult = document.getElementById("searchResult");
+
+searchBtn.addEventListener("click", () => {
+
+    searchModal.classList.add("active");
+    searchInput.focus();
+
+});
+
+closeSearch.addEventListener("click", () => {
+
+    searchModal.classList.remove("active");
+
+});
+
+searchModal.addEventListener("click", (e) => {
+
+    if (e.target === searchModal) {
+        searchModal.classList.remove("active");
+    }
+
+});
+
+
+searchInput.addEventListener("input", () => {
+
+    const value = searchInput.value.toLowerCase().trim();
+
+    if (value === "") {
+        searchResult.textContent = "";
+        return;
+    }
+
+    const keywords = [
+        "computer science",
+        "business",
+        "technology",
+        "health",
+        "language",
+        "architecture",
+        "admission",
+        "scholarship",
+        "campus",
+        "student",
+        "news"
+    ];
+
+    const found = keywords.some(keyword =>
+        keyword.includes(value) || value.includes(keyword)
+    );
+
+    if (found) {
+
+        searchResult.innerHTML =
+            "✓ Information found. Try using the navigation menu to explore <strong>" +
+            value +
+            "</strong>.";
+
+    } else {
+
+        searchResult.textContent =
+            "No matching information found. Try another keyword.";
+
+    }
+
+});
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    alert(
+        "Thank you! Your message has been received. " +
+        "The university team will contact you."
+    );
+
+    contactForm.reset();
+
+});
+
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+const animatedElements =
+    document.querySelectorAll(
+        ".card, .life-card, .scholarship-card, .about-content, .about-image"
+    );
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+
+animatedElements.forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(25px)";
+    element.style.transition = "all .7s ease";
+
+    observer.observe(element);
+
+});
+
+
+/* =========================
+   ACTIVE NAVIGATION
+========================= */
+
+const sections = document.querySelectorAll("section[id]");
+const navItems = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.clientHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navItems.forEach(item => {
+
+        item.style.color = "";
+
+        if (item.getAttribute("href") === "#" + current) {
+            item.style.color = "#1d65b5";
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
